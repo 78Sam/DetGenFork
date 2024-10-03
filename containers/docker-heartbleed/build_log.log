@@ -1,0 +1,33 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 134B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/andrewmichaelsmith/docker-heartbleed:latest
+#2 ...
+
+#3 [auth] andrewmichaelsmith/docker-heartbleed:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/andrewmichaelsmith/docker-heartbleed:latest
+#2 DONE 1.2s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/2] FROM docker.io/andrewmichaelsmith/docker-heartbleed:latest@sha256:8dc5f44f1a5aed2e99e895a6ed97c14f2b19d6ffb7bbbc41b68f039f8b928e77
+#5 resolve docker.io/andrewmichaelsmith/docker-heartbleed:latest@sha256:8dc5f44f1a5aed2e99e895a6ed97c14f2b19d6ffb7bbbc41b68f039f8b928e77 0.1s done
+#5 DONE 0.1s
+
+#6 [2/2] RUN apt-get install -y iputils-ping net-tools iproute
+#6 CACHED
+
+#7 exporting to image
+#7 exporting layers done
+#7 writing image sha256:1dc2e144a81df36dc0b9f41ce395aa51cd49bc53a097378066e5d8044a01f0be done
+#7 naming to docker.io/detlearsom/heartbleed done
+#7 DONE 0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/bsxrf8srk9g628k7j05tvp70n

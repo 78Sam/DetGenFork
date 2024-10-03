@@ -1,0 +1,11 @@
+2.4.34: Pulling from library/httpd
+f189db1b88b3: Already exists
+ba2d31d4e2e7: Already exists
+23a65f5e3746: Already exists
+5e8eccbd4bc6: Already exists
+4c145eec18d8: Already exists
+1c74ffd6a8a2: Already exists
+1421f0320e1b: Already exists
+Digest: sha256:8631904c6e92918b6c7dd82b72512714e7fbc3f1a1ace2de17cb2746c401b8fb
+Status: Downloaded newer image for httpd:2.4.34
+docker.io/library/httpd:2.4.34

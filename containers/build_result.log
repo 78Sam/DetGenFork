@@ -1,0 +1,4 @@
+Succeeded : 18 docker-tcpdump : 5.76
+Total: 1/24
+
+not(ip6 or arp or (udp and (src port 5353 or src port 57621))) -v -w "/data/test.pcap"

@@ -1,0 +1,32 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 78B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/alpine:3.10
+#2 ...
+
+#3 [auth] library/alpine:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/alpine:3.10
+#2 DONE 1.2s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/2] FROM docker.io/library/alpine:3.10@sha256:451eee8bedcb2f029756dc3e9d73bab0e7943c1ac55cff3a4861c52a0fdd3e98
+#5 DONE 0.0s
+
+#6 [2/2] RUN apk add openntpd
+#6 CACHED
+
+#7 exporting to image
+#7 exporting layers done
+#7 writing image sha256:4b0d04f8b5a4b5c958c1ea81e1e8e4adc6249ac97d6f8dc9da6360e4d1b5d30a done
+#7 naming to docker.io/detlearsom/ntpd done
+#7 DONE 0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/uhxbddai54xbd67x1hv6h0bk2

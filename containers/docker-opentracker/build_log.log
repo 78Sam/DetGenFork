@@ -1,0 +1,49 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 772B done
+#1 WARN: NoEmptyContinuation: Empty continuation line (line 28)
+#1 WARN: MaintainerDeprecated: Maintainer instruction is deprecated in favor of using label (line 3)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/alpine:latest
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/alpine:latest@sha256:beefdbd8a1da6d2915566fde36db9db0b524eb737fc57cd1367effd16dc0d06d
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 98B done
+#5 DONE 0.0s
+
+#6 [2/6] WORKDIR /tmp
+#6 CACHED
+
+#7 [3/6] RUN apk add --no-cache 	gcc 	g++ 	make 	git 	cvs 	zlib-dev 	&& cvs -d :pserver:cvs@cvs.fefe.de:/cvs -z9 co libowfat 	&& cd libowfat 	&& make 	&& cd ../ 	&& git clone git://erdgeist.org/opentracker 		&& cd opentracker 		&& make 	&& mv /tmp/opentracker/opentracker /bin/ 	&& apk del gcc g++ make git cvs zlib-dev 	&& rm -rf /var/cache/apk/* /tmp/*
+#7 CACHED
+
+#8 [5/6] COPY ./whitelist.txt	/etc/opentracker/whitelist.txt
+#8 CACHED
+
+#9 [4/6] COPY ./opentracker.conf /etc/opentracker/opentracker.conf
+#9 CACHED
+
+#10 [6/6] COPY ./blacklist.txt	/etc/opentracker/blacklist.conf
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 writing image sha256:bc3082b82af94443a242764a94b83e02f3aadffba061a0a3365103827e93e042 done
+#11 naming to docker.io/detlearsom/opentracker done
+#11 DONE 0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/gjumiyds566oxpkp0lque58da
+
+ [33m3 warnings found (use docker --debug to expand):
+[0m - NoEmptyContinuation: Empty continuation line (line 28)
+ - MaintainerDeprecated: Maintainer instruction is deprecated in favor of using label (line 3)
+ - JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 36)

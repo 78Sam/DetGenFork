@@ -1,0 +1,26 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 81B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/alpine:3.5
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/2] FROM docker.io/library/alpine:3.5@sha256:66952b313e51c3bd1987d7c4ddf5dba9bc0fb6e524eed2448fa660246b3e76ec
+#4 DONE 0.0s
+
+#5 [2/2] RUN apk add --no-cache wget
+#5 CACHED
+
+#6 exporting to image
+#6 exporting layers done
+#6 writing image sha256:27b13054b5ad45df674e7e311cf5b551a5c955d00e2dc634c9354ee82c02012c done
+#6 naming to docker.io/detlearsom/wget done
+#6 DONE 0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/rih82oh66k0wfgkvs6634pgt2

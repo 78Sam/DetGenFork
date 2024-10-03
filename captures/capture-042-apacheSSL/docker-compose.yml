@@ -39,7 +39,7 @@ services:
 
   tcpdump_apache:
     image: 'detlearsom/tcpdump'
-    command: not(ip6 or arp or (udp and (src port 5353 or src port 57621))) -v -w "/data/dump-042-apacheSSL-server-${CAPTURETIME}-$REPNUM.pcap"
+    command: not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\) -v -w "/data/dump-042-apacheSSL-server-${CAPTURETIME}-$REPNUM.pcap"
     volumes:
       - '${DATADIR}:/data'
     network_mode: "service:apache"
@@ -49,7 +49,7 @@ services:
 
   tcpdump_wget_80:
     image: 'detlearsom/tcpdump'
-    command: not(ip6 or arp or (udp and (src port 5353 or src port 57621))) -v -w "/data/dump-042-apacheSSL-HTTPclient-${CAPTURETIME}-$REPNUM.pcap"
+    command: not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\) -v -w "/data/dump-042-apacheSSL-HTTPclient-${CAPTURETIME}-$REPNUM.pcap"
     volumes:
       - '${DATADIR}:/data'
     network_mode: "service:wget_80"
@@ -59,7 +59,7 @@ services:
 
   tcpdump_wget_443:
     image: 'detlearsom/tcpdump'
-    command: not(ip6 or arp or (udp and (src port 5353 or src port 57621))) -v -w "/data/dump-042-apacheSSL-HTTPSclient-${CAPTURETIME}-$REPNUM.pcap"
+    command: not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\) -v -w "/data/dump-042-apacheSSL-HTTPSclient-${CAPTURETIME}-$REPNUM.pcap"
     volumes:
       - '${DATADIR}:/data'
     network_mode: "service:wget_443"

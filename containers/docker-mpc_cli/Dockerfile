@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM debian:bookworm-slim
 
 RUN set -ex \
  && apt-get update \

@@ -1,0 +1,11 @@
+latest: Pulling from corentinaltepe/heirloom-mailx
+f56be85fc22e: Pulling fs layer
+d76629c9b0c7: Pulling fs layer
+f56be85fc22e: Download complete
+d76629c9b0c7: Verifying Checksum
+d76629c9b0c7: Download complete
+f56be85fc22e: Pull complete
+d76629c9b0c7: Pull complete
+Digest: sha256:228621d150e13b2332db4902c72b01bc3a8c307c1c647c17db9204eadcb24df6
+Status: Downloaded newer image for corentinaltepe/heirloom-mailx:latest
+docker.io/corentinaltepe/heirloom-mailx:latest

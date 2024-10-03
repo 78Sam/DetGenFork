@@ -1,0 +1,21 @@
+1.13.8-alpine: Pulling from library/nginx
+550fe1bea624: Pulling fs layer
+d421ba34525b: Pulling fs layer
+fdcbcb327323: Pulling fs layer
+bfbcec2fc4d5: Pulling fs layer
+bfbcec2fc4d5: Waiting
+fdcbcb327323: Verifying Checksum
+fdcbcb327323: Download complete
+550fe1bea624: Verifying Checksum
+550fe1bea624: Download complete
+550fe1bea624: Pull complete
+bfbcec2fc4d5: Verifying Checksum
+bfbcec2fc4d5: Download complete
+d421ba34525b: Verifying Checksum
+d421ba34525b: Download complete
+d421ba34525b: Pull complete
+fdcbcb327323: Pull complete
+bfbcec2fc4d5: Pull complete
+Digest: sha256:c8ff0187cc75e1f5002c7ca9841cb191d33c4080f38140b9d6f07902ababbe66
+Status: Downloaded newer image for nginx:1.13.8-alpine
+docker.io/library/nginx:1.13.8-alpine

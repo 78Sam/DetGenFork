@@ -12,7 +12,7 @@ RUN set -ex \
         gstreamer1.0-plugins-bad \
         python3-crypto \
         python3-distutils \
- && curl -L https://bootstrap.pypa.io/get-pip.py | python3 - \
+ && curl -L https://bootstrap.pypa.io/pip/3.7/get-pip.py | python3 - \
  && pip install pipenv \
     # Clean-up
  && apt-get clean \

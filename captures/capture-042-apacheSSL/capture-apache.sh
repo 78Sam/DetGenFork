@@ -9,6 +9,9 @@ REPEAT="$2"
 [ -z "$REPEAT" ] && REPEAT=1
 
 
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
+
 function bringup {
     echo "Start the containerised applications..."
     export DATADIR="$PWD/data"

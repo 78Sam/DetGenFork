@@ -1,0 +1,83 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.06kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/debian:buster-slim
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/10] FROM docker.io/library/debian:buster-slim@sha256:bb3dc79fddbca7e8903248ab916bb775c96ec61014b3d02b4f06043b604726dc
+#4 DONE 0.0s
+
+#5 [ 2/10] RUN set -ex  && apt-get update  && DEBIAN_FRONTEND=noninteractive apt-get install -y         curl         dumb-init         gnupg         gstreamer1.0-alsa         gstreamer1.0-plugins-bad         python3-crypto         python3-distutils  && curl -L https://bootstrap.pypa.io/pip/3.7/get-pip.py | python3 -  && pip install pipenv  && apt-get clean  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* ~/.cache
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 163B done
+#6 DONE 0.0s
+
+#7 [ 3/10] RUN set -ex  && curl -L https://apt.mopidy.com/mopidy.gpg | apt-key add -  && curl -L https://apt.mopidy.com/mopidy.list -o /etc/apt/sources.list.d/mopidy.list  && apt-get update  && DEBIAN_FRONTEND=noninteractive apt-get install -y         mopidy         mopidy-mpd         mopidy-local  && apt-get purge --auto-remove -y         gcc  && apt-get clean  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* ~/.cache
+#7 0.093 + + curl -L https://apt.mopidy.com/mopidy.gpg
+#7 0.094 apt-key add -
+#7 0.165   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+#7 0.165                                  Dload  Upload   Total   Spent    Left  Speed
+#7 0.165   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  2232  100  2232    0     0   7018      0 --:--:-- --:--:-- --:--:--  7108
+#7 0.519 Warning: apt-key output should not be parsed (stdout is not a terminal)
+#7 3.942 OK
+#7 4.001 + curl -L https://apt.mopidy.com/mopidy.list -o /etc/apt/sources.list.d/mopidy.list
+#7 4.026   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+#7 4.026                                  Dload  Upload   Total   Spent    Left  Speed
+#7 4.026   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   360  100   360    0     0   1782      0 --:--:-- --:--:-- --:--:--  1809
+#7 4.230 + apt-get update
+#7 4.436 Get:1 http://deb.debian.org/debian buster InRelease [122 kB]
+#7 4.497 Get:2 http://deb.debian.org/debian-security buster/updates InRelease [34.8 kB]
+#7 4.525 Get:3 http://deb.debian.org/debian buster-updates InRelease [56.6 kB]
+#7 4.573 Get:4 https://apt.mopidy.com bookworm InRelease [13.9 kB]
+#7 5.280 Get:5 http://deb.debian.org/debian buster/main amd64 Packages [7909 kB]
+#7 6.705 Get:6 http://deb.debian.org/debian-security buster/updates/main amd64 Packages [610 kB]
+#7 6.819 Get:7 http://deb.debian.org/debian buster-updates/main amd64 Packages [8788 B]
+#7 7.140 Err:4 https://apt.mopidy.com bookworm InRelease
+#7 7.140   The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 78FD980E271D2943
+#7 7.679 Reading package lists...
+#7 8.104 W: GPG error: https://apt.mopidy.com bookworm InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 78FD980E271D2943
+#7 8.104 E: The repository 'https://apt.mopidy.com bookworm InRelease' is not signed.
+#7 ERROR: process "/bin/sh -c set -ex  && curl -L https://apt.mopidy.com/mopidy.gpg | apt-key add -  && curl -L https://apt.mopidy.com/mopidy.list -o /etc/apt/sources.list.d/mopidy.list  && apt-get update  && DEBIAN_FRONTEND=noninteractive apt-get install -y         mopidy         mopidy-mpd         mopidy-local  && apt-get purge --auto-remove -y         gcc  && apt-get clean  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* ~/.cache" did not complete successfully: exit code: 100
+------
+ > [ 3/10] RUN set -ex  && curl -L https://apt.mopidy.com/mopidy.gpg | apt-key add -  && curl -L https://apt.mopidy.com/mopidy.list -o /etc/apt/sources.list.d/mopidy.list  && apt-get update  && DEBIAN_FRONTEND=noninteractive apt-get install -y         mopidy         mopidy-mpd         mopidy-local  && apt-get purge --auto-remove -y         gcc  && apt-get clean  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* ~/.cache:
+4.525 Get:3 http://deb.debian.org/debian buster-updates InRelease [56.6 kB]
+4.573 Get:4 https://apt.mopidy.com bookworm InRelease [13.9 kB]
+5.280 Get:5 http://deb.debian.org/debian buster/main amd64 Packages [7909 kB]
+6.705 Get:6 http://deb.debian.org/debian-security buster/updates/main amd64 Packages [610 kB]
+6.819 Get:7 http://deb.debian.org/debian buster-updates/main amd64 Packages [8788 B]
+7.140 Err:4 https://apt.mopidy.com bookworm InRelease
+7.140   The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 78FD980E271D2943
+
+8.104 W: GPG error: https://apt.mopidy.com bookworm InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 78FD980E271D2943
+8.104 E: The repository 'https://apt.mopidy.com bookworm InRelease' is not signed.
+------
+Dockerfile:21
+--------------------
+  20 |     
+  21 | >>> RUN set -ex \
+  22 | >>>  && curl -L https://apt.mopidy.com/mopidy.gpg | apt-key add - \
+  23 | >>>  && curl -L https://apt.mopidy.com/mopidy.list -o /etc/apt/sources.list.d/mopidy.list \
+  24 | >>>  && apt-get update \
+  25 | >>>  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+  26 | >>>         mopidy \
+  27 | >>>         mopidy-mpd \
+  28 | >>>         mopidy-local \
+  29 | >>>     # Clean-up
+  30 | >>>  && apt-get purge --auto-remove -y \
+  31 | >>>         gcc \
+  32 | >>>  && apt-get clean \
+  33 | >>>  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* ~/.cache
+  34 |     
+--------------------
+ERROR: failed to solve: process "/bin/sh -c set -ex  && curl -L https://apt.mopidy.com/mopidy.gpg | apt-key add -  && curl -L https://apt.mopidy.com/mopidy.list -o /etc/apt/sources.list.d/mopidy.list  && apt-get update  && DEBIAN_FRONTEND=noninteractive apt-get install -y         mopidy         mopidy-mpd         mopidy-local  && apt-get purge --auto-remove -y         gcc  && apt-get clean  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* ~/.cache" did not complete successfully: exit code: 100
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/d97bbkwbl0ymsu4myioy1j8bp
