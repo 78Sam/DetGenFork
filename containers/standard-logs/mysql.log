@@ -17,37 +17,39 @@ c691115e6ae9: Pulling fs layer
 5db5c83b9b9a: Waiting
 9cb56d3f0a7e: Waiting
 448d4de73cac: Waiting
-0cd4fcc94b67: Waiting
 254d04f5f66d: Waiting
 4fe240edfdc9: Waiting
+0cd4fcc94b67: Waiting
 c691115e6ae9: Verifying Checksum
 c691115e6ae9: Download complete
-41544cb19235: Verifying Checksum
-41544cb19235: Download complete
 254d04f5f66d: Verifying Checksum
 254d04f5f66d: Download complete
+41544cb19235: Verifying Checksum
+41544cb19235: Download complete
+f17d81b4b692: Verifying Checksum
+f17d81b4b692: Download complete
+4fe240edfdc9: Verifying Checksum
 4fe240edfdc9: Download complete
 8df36ec4b34a: Verifying Checksum
 8df36ec4b34a: Download complete
+0cd4fcc94b67: Verifying Checksum
+0cd4fcc94b67: Download complete
 739800af3a9f: Verifying Checksum
 739800af3a9f: Download complete
-f17d81b4b692: Verifying Checksum
-f17d81b4b692: Download complete
 f17d81b4b692: Pull complete
 c691115e6ae9: Pull complete
-5db5c83b9b9a: Download complete
 41544cb19235: Pull complete
 254d04f5f66d: Pull complete
 4fe240edfdc9: Pull complete
-9cb56d3f0a7e: Verifying Checksum
-9cb56d3f0a7e: Download complete
-0cd4fcc94b67: Verifying Checksum
-0cd4fcc94b67: Download complete
-448d4de73cac: Verifying Checksum
-448d4de73cac: Download complete
+5db5c83b9b9a: Verifying Checksum
+5db5c83b9b9a: Download complete
 0cd4fcc94b67: Pull complete
 8df36ec4b34a: Pull complete
 739800af3a9f: Pull complete
+9cb56d3f0a7e: Verifying Checksum
+9cb56d3f0a7e: Download complete
+448d4de73cac: Verifying Checksum
+448d4de73cac: Download complete
 0cbc995daddd: Verifying Checksum
 0cbc995daddd: Download complete
 0cbc995daddd: Pull complete

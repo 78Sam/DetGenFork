@@ -8,14 +8,13 @@ de6301935e0e: Pulling fs layer
 de6301935e0e: Waiting
 09f4f56b265e: Waiting
 7e7cf2415e26: Waiting
-5419e3b18744: Verifying Checksum
 5419e3b18744: Download complete
 7a635e5f6dbf: Verifying Checksum
-7a635e5f6dbf: Download complete
-7a635e5f6dbf: Pull complete
-de6301935e0e: Download complete
 db29663d8663: Verifying Checksum
 db29663d8663: Download complete
+7a635e5f6dbf: Pull complete
+de6301935e0e: Verifying Checksum
+de6301935e0e: Download complete
 7e7cf2415e26: Verifying Checksum
 7e7cf2415e26: Download complete
 db29663d8663: Pull complete
