@@ -19,3 +19,9 @@ Explicitly set python version for docker-mpd
     OLD:  && curl -L https://bootstrap.pypa.io/get-pip.py | python3 - \
     NEW:  && curl -L https://bootstrap.pypa.io/pip/3.7/get-pip.py | python3 - \
 
+Should the stress library not be automatically installed
+
+Where is the docker image for siege
+Where is the docker image for msfconsole
+Where is the docker image for php (I have just created one)
+Where is the docker image for python-requests (I have just created one)

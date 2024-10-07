@@ -24,7 +24,7 @@ services:
         ipv4_address: 172.16.238.20
 
   attacker:
-    image: 'python-requests'
+    image: 'detlearsom/python-requests'
     command: tail -f /dev/null
     volumes:
       - '$PWD/attacker-share:/usr/share/scripts'

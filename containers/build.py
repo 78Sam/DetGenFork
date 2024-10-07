@@ -2,6 +2,7 @@ import os
 import subprocess
 from time import time, sleep
 from threading import Thread
+from datetime import datetime
 
 
 running: bool = False
@@ -166,5 +167,7 @@ progress = progress.replace(f"{bcolors.OKGREEN}", "")
 progress = progress.replace(f"{bcolors.OKBLUE}", "")
 progress = progress.replace(f"{bcolors.ENDC}", "")
 
-with open("./containers/build_result.log", "w") as build_result:
+date_time = datetime.now().strftime("%d_%m_%Y_H%H_M%M")
+
+with open(f"./containers/build_result_{date_time}.log", "w") as build_result:
     build_result.write(progress)

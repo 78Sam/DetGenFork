@@ -24,7 +24,7 @@ services:
         ipv4_address: 172.16.238.20
 
   admin_user:
-    image: 'python-requests'
+    image: 'detlearsom/python-requests'
     command: python /usr/share/scripts/populate_userlist.py
     volumes:
       - '$PWD/admin-share:/usr/share/scripts'

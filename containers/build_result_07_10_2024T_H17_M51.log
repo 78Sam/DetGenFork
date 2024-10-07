@@ -1,0 +1,26 @@
+Succeeded : 1 nginx:1.13.8-alpine : 1.33
+Succeeded : 2 linuxserver/syncthing:131 : 1.17
+Succeeded : 3 ubuntu:18.04 : 1.11
+Succeeded : 4 corentinaltepe/heirloom-mailx:latest : 1.29
+Succeeded : 5 mysql:8.0.12 : 1.18
+Succeeded : 6 httpd:2.4.34 : 1.18
+Succeeded : 7 docker-ffmpeg : 0.38
+Succeeded : 8 docker-ftp-client : 1.18
+Succeeded : 9 docker-heartbleed : 1.74
+Succeeded : 10 docker-httpd : 0.33
+Succeeded : 11 docker-mpc_cli : 1.54
+Failed : 12 docker-mpd : 8.33
+Succeeded : 13 docker-ntpd : 1.31
+Succeeded : 14 docker-opentracker : 0.95
+Succeeded : 15 docker-php : 1.28
+Succeeded : 16 docker-ping : 1.19
+Succeeded : 17 docker-python-requests : 1.31
+Succeeded : 18 docker-sshd : 1.42
+Succeeded : 19 docker-tcpdump : 1.25
+Succeeded : 20 docker-tcpdump_trunc : 0.96
+Succeeded : 21 docker-test : 1.26
+Succeeded : 22 docker-torrent-host : 0.38
+Failed : 23 docker-vsftpd : 1.73
+Succeeded : 24 docker-wget : 0.7
+Succeeded : 25 docker-wgetssl : 0.51
+Total: 23/25

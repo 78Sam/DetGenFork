@@ -6,7 +6,7 @@ export SCENARIO="$1"
 DURATION="$2"
 
 
-[ -z "$SCENARIO" ] && SCENARIO=1
+[ -z "$SCENARIO" ] && SCENARIO=0
 [ -z "$DURATION" ] && DURATION=60
 [ -z "$REPEAT" ] && REPEAT=1
 
