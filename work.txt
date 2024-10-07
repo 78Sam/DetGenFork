@@ -1,0 +1,21 @@
+Export DOCKER_DEFAULT_PLATFORM=linux/amd64 in capture-042
+
+Fix tcpdump commands to include \ before each ():
+    command: not(ip6 or arp or (udp and (src port 5353 or src port 57621))) -v -w "/data/dump-042-apacheSSL-server-${CAPTURETIME}-$REPNUM.pcap"
+    command: not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\) -v -w "/data/dump-042-apacheSSL-server-${CAPTURETIME}-$REPNUM.pcap"
+
+Create auto_build script that includes build logs
+    build.py
+
+Update docker-ftp-client Dockerfile
+    OLD: FROM debian:jessie
+    NEW: FROM debian:bookworm
+
+Update docker-mpc_cli
+    OLD: FROM debian:stretch-slim
+    NEW: FROM debian:bookworm-slim
+
+Explicitly set python version for docker-mpd
+    OLD:  && curl -L https://bootstrap.pypa.io/get-pip.py | python3 - \
+    NEW:  && curl -L https://bootstrap.pypa.io/pip/3.7/get-pip.py | python3 - \
+
