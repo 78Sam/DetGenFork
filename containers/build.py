@@ -1,6 +1,10 @@
 import os
 import subprocess
-from time import time
+from time import time, sleep
+from threading import Thread
+
+
+running: bool = False
 
 
 class bcolors:
@@ -13,6 +17,14 @@ class bcolors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+
+
+def printProgress(progress):
+    start = time()
+    while running:
+        os.system("clear")
+        print(f"{progress} : {round(time() - start, 2)}")
+        sleep(1)
 
 
 def build(image) -> dict:
@@ -125,15 +137,22 @@ os.system("clear")
 
 to_build = [choice] if choice != 0 else images.keys()
 
+os.system("sudo echo 'Sudo complete'")
+input("Start:")
+
 progress = ""
 total_success = 0
 for key in to_build:
     image = images[key]
-    print(f"{progress}{bcolors.OKBLUE}In Progress : {key} {image}{bcolors.ENDC}")
+    # print(f"{progress}{bcolors.OKBLUE}In Progress : {key} {image}{bcolors.ENDC}")
+    running = True
+    Thread(target=lambda: printProgress(f"{progress}{bcolors.OKBLUE}In Progress : {key} {image}{bcolors.ENDC}"), daemon=True).start()
     if image in STD_IMAGES:
         res = pull(image)
     else:
         res = build(image)
+    running = False
+    sleep(1.5)
     progress += f"{res['state']} : {key} {image} : {res['time']}{bcolors.ENDC}\n"
     os.system("clear")
     if res["code"]:
