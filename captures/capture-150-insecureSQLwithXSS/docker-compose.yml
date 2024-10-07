@@ -36,7 +36,7 @@ services:
 
   tcpdump_sql:
     image: 'detlearsom/tcpdump'
-    command: not(ip6 or arp or (udp and (src port 5353 or src port 57621))) -v -w "/data/dump-150-sql-${CAPTURETIME}-$REPNUM.pcap"
+    command: not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\) -v -w "/data/dump-150-sql-${CAPTURETIME}-$REPNUM.pcap"
     volumes:
       - '$PWD/data:/data'
     network_mode: "service:sql"
@@ -45,7 +45,7 @@ services:
 
   tcpdump_apache:
     image: 'detlearsom/tcpdump'
-    command: not(ip6 or arp or (udp and (src port 5353 or src port 57621))) -v -w "/data/dump-150-apache-${CAPTURETIME}-$REPNUM.pcap"
+    command: not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\) -v -w "/data/dump-150-apache-${CAPTURETIME}-$REPNUM.pcap"
     volumes:
       - '$PWD/data:/data'
     network_mode: "service:apache"
@@ -55,7 +55,7 @@ services:
 
   tcpdump_attacker:
     image: 'detlearsom/tcpdump'
-    command: not(ip6 or arp or (udp and (src port 5353 or src port 57621))) -v -w "/data/dump-150-attacker-${CAPTURETIME}-$REPNUM.pcap"
+    command: not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\) -v -w "/data/dump-150-attacker-${CAPTURETIME}-$REPNUM.pcap"
     volumes:
       - '$PWD/data:/data'
     network_mode: "service:attacker"
