@@ -137,7 +137,7 @@ os.system("clear")
 
 to_build = [choice] if choice != 0 else images.keys()
 
-os.system("sudo echo 'Sudo complete'")
+os.system("sudo echo ''")
 input("Start:")
 
 progress = ""
