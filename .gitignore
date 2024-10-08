@@ -1,5 +1,6 @@
 **/build_log.log
 **/build_result.log
+**/build_result_*.log
 **/.DS_STORE
 temp/*
 !temp/.gitkeep
