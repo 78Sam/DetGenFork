@@ -3,3 +3,5 @@ Why are there so many HTML files that all seem to be the same
 None of the templates in nginxWget exist anymore
 
 nginxWget seems to crash pc
+
+Why are some of the capture shell scripts different names, or can they all just be renamed to capture.sh?
