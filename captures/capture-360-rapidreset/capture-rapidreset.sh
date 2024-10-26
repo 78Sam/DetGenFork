@@ -14,7 +14,7 @@ ContainerIDS=("capture-360-rapidreset-rapidreset-1")
 function bringup {
     echo "Start the containerised applications..."
     export DATADIR="$PWD/data"
-    docker-compose --no-ansi --log-level ERROR up -d 
+    docker compose --ansi NEVER  up -d 
     ../Controlfunctions/container_tc_local_bandwidth.sh 1 "${ContainerIDS[0]}" "${ContainerIDS[1]}"
 }
 
@@ -22,7 +22,7 @@ function teardown {
     echo "Take down the containerised applications and networks..."
     # NB: this removes everything so it is hard to debug from this script
     # TODO: add a `--debug` option instead use `docker-compose stop`.
-    docker-compose --no-ansi --log-level ERROR down --remove-orphans -v
+    docker compose --ansi NEVER  down --remove-orphans -v
     echo "Done."
 }
 

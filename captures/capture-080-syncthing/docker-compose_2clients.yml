@@ -1,4 +1,3 @@
-version: '2'
 services:
   synclient1:
     image: 'linuxserver/syncthing:129'

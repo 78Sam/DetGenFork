@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   nginx_host:
     image: 'detlearsom/nginx-rtmp'

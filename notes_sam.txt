@@ -1,0 +1,5 @@
+Why are there so many HTML files that all seem to be the same
+
+None of the templates in nginxWget exist anymore
+
+nginxWget seems to crash pc

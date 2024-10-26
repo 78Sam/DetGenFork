@@ -1,4 +1,3 @@
-version: '2'
 services:
   ircd:
     image: 'thenotary/ircd-docker'

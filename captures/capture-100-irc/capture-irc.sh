@@ -13,14 +13,14 @@ function bringup {
     echo "Start the containerised applications..."
     export DATADIR="$PWD/data"
     export CAPTURETIME=`date +%Y-%m-%d_%H-%M-%S`
-    docker-compose --no-ansi --log-level ERROR up
+    docker compose --ansi NEVER  up
 }
 
 function teardown {
     echo "Take down the containerised applications and networks..."
     # NB: this removes everything so it is hard to debug from this script
     # TODO: add a `--debug` option instead use `docker-compose stop`.
-    docker-compose --no-ansi --log-level ERROR down --remove-orphans -v
+    docker compose --ansi NEVER  down --remove-orphans -v
     echo "Done."
 }
 

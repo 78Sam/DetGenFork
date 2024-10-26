@@ -1,4 +1,3 @@
-version: '2'
 services:
   vsftpd:
     image: 'detlearsom/vsftpd'
