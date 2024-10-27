@@ -6,18 +6,18 @@ IFS=$OLDIFS
 [ -z "$LoadRandomisation" ] && LoadRandomisation=1
 
 function getexpRV(){
-LAMBDA="$1"
-Nrand=32767
-RN=$((1+ RANDOM % ${Nrand}))
-RN=`echo "1-${RN}/${Nrand}" | bc -l`
-RN=$(echo "((-l(${RN})))" | bc -l)
-RN=$(echo "${RN}*${LAMBDA}+2" | bc -l)
-echo ${RN} | awk '{print int($1)}'
+	LAMBDA="$1"
+	Nrand=32767
+	RN=$((1+ RANDOM % ${Nrand}))
+	RN=`echo "1-${RN}/${Nrand}" | bc -l`
+	RN=$(echo "((-l(${RN})))" | bc -l)
+	RN=$(echo "${RN}*${LAMBDA}+2" | bc -l)
+	echo ${RN} | awk '{print int($1)}'
 }
 
 if [[ ${LoadRandomisation} == "1" ]]; then
-    	echo "Randomisation active"
-    	Nworkers=$(getexpRV 2)
+	echo "Randomisation active"
+	Nworkers=$(getexpRV 2)
 fi
 
 #ps

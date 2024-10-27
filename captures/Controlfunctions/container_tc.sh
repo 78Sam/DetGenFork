@@ -45,28 +45,26 @@ fi
 [ -z "$CongestRandomisation" ] && CongestRandomisation=1
 
 function getexpRV(){
-LAMBDA="$1"
-Nrand=32767
-RN=$((1+ RANDOM % ${Nrand}))
-RN=`echo "1-${RN}/${Nrand}" | bc -l`
-RN=$(echo "((-l(${RN})))" | bc -l)
-RN=$(echo "${RN}*${LAMBDA}" | bc -l)
-echo "0${RN:0:6}"
+  LAMBDA="$1"
+  Nrand=32767
+  RN=$((1+ RANDOM % ${Nrand}))
+  RN=`echo "1-${RN}/${Nrand}" | bc -l`
+  RN=$(echo "((-l(${RN})))" | bc -l)
+  RN=$(echo "${RN}*${LAMBDA}" | bc -l)
+  echo "0${RN:0:6}"
 }
 
 if [[ ${CongestRandomisation} == "1" ]]; then
-    	echo "Randomisation active"
-    	MLat=$(getexpRV 100)
-    	SLat=$(getexpRV 50)
-    	Loss=$(getexpRV 0.1)
-   	Corrupt=$(getexpRV 0.1)
-   	
+  echo "Randomisation active"
+  MLat=$(getexpRV 100)
+  SLat=$(getexpRV 50)
+  Loss=$(getexpRV 0.1)
+  Corrupt=$(getexpRV 0.1)
 #   	echo "Debug: MLat=$MLat, SLat=$SLat, Loss=$Loss, Corrupt=$Corrupt"
 fi
 
-round()
-{
-echo $(printf %.$2f $(echo "scale=$2;(((10^$2)*$1)+0.5)/(10^$2)" | bc))
+round() {
+  echo $(printf %.$2f $(echo "scale=$2;(((10^$2)*$1)+0.5)/(10^$2)" | bc))
 };
 
 function get_container_veth() {
@@ -94,20 +92,20 @@ function get_container_veth() {
 
 
 for ContainerID in "${ContainerIDS[@]}"
-do
+  do
 
-echo "Applying Congestion to Container $ContainerID"
+    echo "Applying Congestion to Container $ContainerID"
 
-veth_full=$(get_container_veth $ContainerID)
+    veth_full=$(get_container_veth $ContainerID)
 
-veth=${veth_full%@*}
-#echo "Debug: MLat=$MLat, SLat=$SLat, Loss=$Loss, Corrupt=$Corrupt"
-tc qdisc replace dev $veth root netem delay "$MLat"ms "$SLat"ms distribution pareto loss $Loss% corrupt $Corrupt%
+    veth=${veth_full%@*}
+    #echo "Debug: MLat=$MLat, SLat=$SLat, Loss=$Loss, Corrupt=$Corrupt"
+    tc qdisc replace dev $veth root netem delay "$MLat"ms "$SLat"ms distribution pareto loss $Loss% corrupt $Corrupt%
 
-#tc qdisc add dev $veth root netem loss $Loss%
+    #tc qdisc add dev $veth root netem loss $Loss%
 
-#tc qdisc add dev $veth root netem corrupt $Corrupt%
+    #tc qdisc add dev $veth root netem corrupt $Corrupt%
 
-done
+  done
 
-echo "Gongestion applied"
+echo "Congestion applied"

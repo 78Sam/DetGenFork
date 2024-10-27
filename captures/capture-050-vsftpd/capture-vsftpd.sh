@@ -10,7 +10,7 @@ DURATION="$2"
 [ -z "$REPEAT" ] && REPEAT=1
 
 
-ContainerIDS=("capture-050-vsftpd_vsftpd_1" "capture-050-vsftpd_ftp-client_1")
+ContainerIDS=("capture-050-vsftpd-vsftpd-1" "capture-050-vsftpd-ftp-client-1")
 
 
 for ((i=1; i<=REPEAT; i++))
@@ -26,7 +26,7 @@ do
     . ../Controlfunctions/activity_selector.sh 13
     ################################################################################
     # Start the containerised applications
-    docker-compose up -d;
+    docker compose up -d;
     . ../Controlfunctions/container_tc.sh "${ContainerIDS[0]}" "${ContainerIDS[1]}"
     . ../Controlfunctions/set_load.sh ${Nworkers}
     ################################################################################
@@ -53,7 +53,7 @@ do
     ################################################################################
     # Wait 2 seconds then take things down
     echo "Stopping" 
-    docker-compose down --remove-orphans -v
+    docker compose down --remove-orphans -v
     echo "Stopping" 
     #Remove all files so that you can start with a clean slate    
     rm -f -r dataToShare/

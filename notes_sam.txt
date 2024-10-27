@@ -2,11 +2,13 @@ General:
 - What is the Bulgarian HTML page that is used everywhere?
 - Why does the 020 capture siege end so much sooner than the 040 capture siege (I tried upping the threads of
     040 siege to 10 like in 020)
+- Can we change all the shell scripts to a common name like capture.sh?
+- Whats the difference between file_creator.sh and file_creator_HTTP.sh?
 
 
 Improvements:
 - Move the huge volumes of HTML files to one folder and have all scenarios reference that folder
-    instead of copying them
+    instead of copying them (might need to change the files anyway as the templates dont exist anymore)
 - Lots of re-use in docker-compose files but with slightly different names of stuff which is
     a bit of a nucince, e.g. nginxSSL and apacheSSL wget features use the same commands but name the
     source and output directorys differently
@@ -37,7 +39,7 @@ CAPTURES:
 021 - nginxwget:
 - what does file_creator_HTTP actually do, it seems it never enters the if statement as FileRandomisation env variable
     is not provided, which causes the export FILENAME env variable to fail
-- All the templates just seem to return an error page, seems they dont exist anymore
+- All the template HTML files just seem to return an error page, seems they dont exist anymore
 
 022 - nginxssl
 - Why have we removed the delay function?
@@ -54,3 +56,17 @@ CAPTURES:
 - SCENARIO env var needs to be exported
 - Why are delays not enabled?
 - ./container_tc.sh referenced but no file by that name is in the directory
+
+050 - vsftpd:
+- Lots of issues in this scenario
+- Fixed the images used as mentioned above
+- Fixed issues with tcpdump commands containing () which are special characters and cause tcpdump
+    to fail afaik. Replaced with not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\)
+    Can they just be changed to match the new tcpdump image which contains the command as part of the image build?
+- Fixed container names in capture-vsftpd.sh
+    old: ContainerIDS=("capture-050-vsftpd_vsftpd_1" "capture-050-vsftpd_ftp-client_1")
+    new: ContainerIDS=("capture-050-vsftpd-vsftpd-1" "capture-050-vsftpd-ftp-client-1")
+- Lots of other permission denied errors in:
+    creating and removing files
+    creating symbolic links
+    

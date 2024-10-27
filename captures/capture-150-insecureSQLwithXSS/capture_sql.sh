@@ -23,7 +23,7 @@ do
     #. ../Controlfunctions/file_creator.sh
     . ../Controlfunctions/activity_selector.sh 3
     ################################################################################
-    docker-compose up -d
+    docker compose up -d
     . ../Controlfunctions/container_tc.sh "${ContainerIDS[0]}" "${ContainerIDS[1]}" 
     . ../Controlfunctions/set_load.sh ${Nworkers}
     ################################################################################
@@ -42,6 +42,6 @@ do
     . ../Controlfunctions/kill_load.sh
     . ../Controlfunctions/label_writer.sh
     ################################################################################    
-    docker-compose down
+    docker compose down
 done
 
