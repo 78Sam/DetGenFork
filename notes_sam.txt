@@ -1,5 +1,56 @@
-Why are there so many HTML files that all seem to be the same
+General:
+- What is the Bulgarian HTML page that is used everywhere?
+- Why does the 020 capture siege end so much sooner than the 040 capture siege (I tried upping the threads of
+    040 siege to 10 like in 020)
 
-None of the templates in nginxWget exist anymore
 
-nginxWget seems to crash pc
+Improvements:
+- Move the huge volumes of HTML files to one folder and have all scenarios reference that folder
+    instead of copying them
+- Lots of re-use in docker-compose files but with slightly different names of stuff which is
+    a bit of a nucince, e.g. nginxSSL and apacheSSL wget features use the same commands but name the
+    source and output directorys differently
+
+
+IMAGES:
+
+- vsftpd still doesnt work, error with the mirror
+    http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=os&infra=container
+    should also be noted that the last meaningful commit was 4 years ago now,
+    https://github.com/fauria/docker-vsftpd
+    Removed the old Dockerfile and added the base image as a standard image in the build process
+    which seems to allow it to build the image
+
+- ftp-client seems to have an issue with debian:jessie which I can assume is because it came out in 2015
+    so I have updated it to debian:bullseye, does this need to be an old version for some malware to work?
+
+- torrent-host also fails to build, updating python to python3 in the apt package list seems to do the trick
+    again, is this ok?
+
+
+CAPTURES:
+
+020 - nginx:
+- Why is siege loading http://nginx instead of localhost:8080?
+- Are the index.html and default.conf files needed? They aren't referenced or added as a volume
+
+021 - nginxwget:
+- what does file_creator_HTTP actually do, it seems it never enters the if statement as FileRandomisation env variable
+    is not provided, which causes the export FILENAME env variable to fail
+- All the templates just seem to return an error page, seems they dont exist anymore
+
+022 - nginxssl
+- Why have we removed the delay function?
+- How is container_tc.sh using 'veth_full=$(get_container_veth $CONTAINER)' get_container_veth doesnt seem to exist
+- Can we remove all the downloaded HTML files after it has run?
+- SCENARIO env var needs to be exported
+
+040 - apache:
+- Concurrent threads and requests seem to be unset which is maybe making the siege much slower
+    than anticipated
+- SCENARIO env var needs to be exported
+
+042 - apacheSSL:
+- SCENARIO env var needs to be exported
+- Why are delays not enabled?
+- ./container_tc.sh referenced but no file by that name is in the directory

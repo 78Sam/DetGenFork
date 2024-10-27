@@ -1,6 +1,6 @@
 services:
   vsftpd:
-    image: 'detlearsom/vsftpd'
+    image: 'fauria/vsftpd'
     networks:
       capture:
         ipv4_address: 172.16.238.15

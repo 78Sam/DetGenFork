@@ -105,7 +105,8 @@ if __name__ == "__main__":
             "ubuntu:18.04",
             "corentinaltepe/heirloom-mailx:latest",
             "mysql:8.0.12",
-            "linuxserver/syncthing:131"
+            "linuxserver/syncthing:131",
+            "fauria/vsftpd:latest"
         ])
 
         images = {}

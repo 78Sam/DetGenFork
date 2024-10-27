@@ -17,7 +17,7 @@ services:
 
   siege:
     image: 'detlearsom/siege'
-    command: siege -c${CONCURRENT_THREADS} -r${REQUESTS} -v http://nginx
+    command: siege -c ${CONCURRENT_THREADS} -r ${REQUESTS} -v http://nginx
 #    command: tail -F anything
     networks:
       - capture

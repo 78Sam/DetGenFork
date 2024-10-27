@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:bullseye
 
 # installs ftp
 RUN apt-get update && apt-get install -y ftp
