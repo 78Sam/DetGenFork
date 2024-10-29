@@ -1,4 +1,7 @@
 #!/bin/sh
+
+echo "starting script 5"
+
 HOST="172.16.238.5"
 USER="root"
 PASS="root1"

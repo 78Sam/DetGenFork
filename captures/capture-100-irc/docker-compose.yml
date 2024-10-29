@@ -31,21 +31,21 @@ services:
   
   tcpdump_ircd:
     image: 'detlearsom/tcpdump'
-    command: not(ip6 or arp or (udp and (src port 5353 or src port 57621))) -v -w "/data/dump-100-ircd-server-${CAPTURETIME}.pcap"
+    command: not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\) -v -w "/data/dump-100-ircd-server-${CAPTURETIME}.pcap"
     volumes:
       - '${DATADIR}:/data'
     network_mode: "service:ircd"
 
   tcpdump_client1:
     image: 'detlearsom/tcpdump'
-    command: not(ip6 or arp or (udp and (src port 5353 or src port 57621))) -v -w "/data/dump-100-irc-client1-${CAPTURETIME}.pcap"
+    command: not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\) -v -w "/data/dump-100-irc-client1-${CAPTURETIME}.pcap"
     volumes:
       - '${DATADIR}:/data'
     network_mode: "service:client1"
 
   tcpdump_client2:
     image: 'detlearsom/tcpdump'
-    command: not(ip6 or arp or (udp and (src port 5353 or src port 57621))) -v -w "/data/dump-100-irc-client2-${CAPTURETIME}.pcap"
+    command: not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\) -v -w "/data/dump-100-irc-client2-${CAPTURETIME}.pcap"
     volumes:
       - '${DATADIR}:/data'
     network_mode: "service:client2"

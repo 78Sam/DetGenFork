@@ -23,7 +23,7 @@ function teardown {
     echo "Done."
 }
 
-ContainerIDS=("capture-090-openssh_sshd_1" "capture-090-openssh_ssh_client_1")
+ContainerIDS=("capture-090-openssh-sshd-1" "capture-090-openssh-ssh_client-1")
 
 
 trap '{ echo "Interrupted."; teardown; exit 1; }' INT

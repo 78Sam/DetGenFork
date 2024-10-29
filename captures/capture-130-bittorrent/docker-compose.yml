@@ -44,7 +44,7 @@ services:
 
   tcpdump_torrent_host:
     image: 'detlearsom/tcpdump'
-    command: not(ip6 or arp or (udp and (src port 5353 or src port 57621))) -v -w "/data/dump-130-torrent-host-${CAPTURETIME}-sc${SCENARIO}-$REPNUM.pcap"
+    command: not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\) -v -w "/data/dump-130-torrent-host-${CAPTURETIME}-sc${SCENARIO}-$REPNUM.pcap"
     depends_on:
       - torrent_host
     volumes:
@@ -55,7 +55,7 @@ services:
 
   tcpdump_client1:
     image: 'detlearsom/tcpdump'
-    command: not(ip6 or arp or (udp and (src port 5353 or src port 57621))) -v -w "/data/dump-130-torrent-client1-${CAPTURETIME}-sc${SCENARIO}-$REPNUM.pcap"
+    command: not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\) -v -w "/data/dump-130-torrent-client1-${CAPTURETIME}-sc${SCENARIO}-$REPNUM.pcap"
     depends_on:
       - torrent_client1
     volumes:

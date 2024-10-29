@@ -28,7 +28,7 @@ services:
 
   tcpdump_sshd:
     image: 'detlearsom/tcpdump'
-    command: not(ip6 or arp or (udp and (src port 5353 or src port 57621))) -v -w "/data/dump-090-sshd-server-sc${SCENARIO}-${CAPTURETIME}-$REPNUM.pcap"
+    command: not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\) -v -w "/data/dump-090-sshd-server-sc${SCENARIO}-${CAPTURETIME}-$REPNUM.pcap"
     volumes:
       - '${DATADIR}:/data'
     depends_on:
@@ -37,7 +37,7 @@ services:
 
   tcpdump_client:
     image: 'detlearsom/tcpdump'
-    command: not(ip6 or arp or (udp and (src port 5353 or src port 57621))) -v -w "/data/dump-090-sshd-client-sc${SCENARIO}-${CAPTURETIME}-$REPNUM.pcap"
+    command: not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\) -v -w "/data/dump-090-sshd-client-sc${SCENARIO}-${CAPTURETIME}-$REPNUM.pcap"
     volumes:
       - '${DATADIR}:/data'
     depends_on:

@@ -1,12 +1,38 @@
+Note that all of this is a first once over, there will likely still be issues
+after some of the issues I've identified are resolved.
+
+Also note that as of writing this I've just noticed that Rob has pushed fixes for some of
+the items listed here, specifically:
+- SCENARIOS
+    - 020
+    - 050
+    - 130
+    - 140
+    - 150
+- IMAGES
+    - ftp-client
+    - open-tracker
+    - rtmp2 (added)
+    - torrent-host
+    - vsftpd
+So these scenarios/images may now be working
+
 General:
 - What is the Bulgarian HTML page that is used everywhere?
 - Why does the 020 capture siege end so much sooner than the 040 capture siege (I tried upping the threads of
     040 siege to 10 like in 020)
 - Can we change all the shell scripts to a common name like capture.sh?
 - Whats the difference between file_creator.sh and file_creator_HTTP.sh?
+- Found out the hard way (arg!) that docker desktop breaks all the stuff that requires
+    finding the PID of a container and then taking stuff from /proc/PID/ as docker desktop
+    works much like a virtual machine and thus the PIDS arnt listed under /proc/PID/
+- Would be good to create a common naming scheme for the names given to the docker images referenced in the docker-compose.yml
+    files, as this has been a problem multiple times where the containers have had different names than
+    what we have in the shell scripts
 
 
-Improvements:
+
+Possibilities:
 - Move the huge volumes of HTML files to one folder and have all scenarios reference that folder
     instead of copying them (might need to change the files anyway as the templates dont exist anymore)
 - Lots of re-use in docker-compose files but with slightly different names of stuff which is
@@ -66,7 +92,64 @@ CAPTURES:
 - Fixed container names in capture-vsftpd.sh
     old: ContainerIDS=("capture-050-vsftpd_vsftpd_1" "capture-050-vsftpd_ftp-client_1")
     new: ContainerIDS=("capture-050-vsftpd-vsftpd-1" "capture-050-vsftpd-ftp-client-1")
-- Lots of other permission denied errors in:
-    creating and removing files
-    creating symbolic links
-    
+
+080 - syncthing:
+- Fixed same issue as above with the tcpdump commands
+- Fixed same issue as above with container names
+- Added depends_on sections for tcpdump containers
+- Updated image to syncthing:131
+- Maybe could get a better name than sync thing?
+- Encountered some issues as regards no file at client2/conf/Sync
+
+090 - openssh:
+- Fixed same issue as above with the tcpdump commands
+- Do we need the dummy container? Or can we just set depends_on to the tcpdumps respective images
+- Again fixed incorrect naming of docker containers in respect to their entries in docker-compose.yml
+
+100 - irc:
+- None of the docker images used besides the tcpdump images actually exist, namely:
+    thenotary/ircd-docker
+    detlearsom/netcat
+- Cant look further into this scenario before the images are provided
+
+120 - heartbleed:
+- Again broken tcpdump commands, same fix as before but need to look into just setting them up
+    with the same commands some of the other tcpdump scenarios have
+- Again missing image, namely:
+    detlearsom/msfconsole
+- Will return when image added
+
+130 - bittorrent:
+- transmission-create and transmission-remote seem to be from https://help.ubuntu.com/community/TransmissionHowTo but no setup
+    instructions provided. Added an installer script to the ./installs folder
+- Seem to still be some issues with the scenario actually sharing stuff over the torrent
+    but it does now at least run after installing the torrent-cli
+
+140 - secureSQL and 150 - insecureSQL:
+- Skipped as I've just noticed that Rob has pushed some fixes yesterday for quite a few of the scenarios
+    here that I have gone over, will finish the ones he hasnt touched yet
+
+190 - MPD:
+- detlearsom/mpd image no longer seems to have modipy installed, Dockerfile is just 'FROM python:3.13.0-slim-bookworm'.
+    There are other config files for the modipy stuff but not sure if they are used on image build?
+- Due to lack of modipy scenario is not currently able to be started so other stuff cant be tested
+- SCENARIO env variable needs set for tcpdump commands
+- add_delays function (which is commented out) again references ./container_tc.sh which doesnt exist within the folder
+
+240 - stream:
+- Scenario not starting due to failure to get 'final childs PID from pipe', not sure as of yet what that means
+- SCENARIO env variable needs to be set for tcpdump commands
+- add_delays function (which is commented out) again references ./container_tc.sh which doesnt exist within the folder
+
+260 - XXE:
+- Same issues with tcpdump commands fixed
+- Scenario cant run as the images for it dont exist in containers, namely:
+    detlearsom/xxe
+    detlearsom/python-requests
+- No more to be done until images added
+
+360 - rapidreset:
+    - README is wrong for scenario
+    - Why is the tcpdump image for apache commented out in docker-compose.yml?
+    - tcpdump-trunc attempted to be used instead of tcpdump_trunc fixed
+    - Otherwise seems to work fine assuming complete functionality is implemented

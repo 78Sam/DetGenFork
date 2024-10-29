@@ -1,6 +1,6 @@
 services:
   synclient1:
-    image: 'linuxserver/syncthing:129'
+    image: 'linuxserver/syncthing:131'
     ports:
       - "3384:8384"
     volumes:
@@ -9,7 +9,7 @@ services:
       - capture
 
   synclient2:
-    image: 'linuxserver/syncthing:129'
+    image: 'linuxserver/syncthing:131'
     ports:
       - "3385:8384"
     volumes:
@@ -18,7 +18,7 @@ services:
       - capture
 
   synclient3:
-    image: 'linuxserver/syncthing:129'
+    image: 'linuxserver/syncthing:131'
     ports:
       - "3386:8384"
     volumes:
@@ -28,24 +28,30 @@ services:
       
   tcpdump_syncthing:
     image: 'detlearsom/tcpdump'
-    command: not(ip6 or arp or (udp and (src port 5353 or src port 57621))) -v -w "/data/dump-080-syncthing-${CAPTURETIME}.pcap"
+    command: not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\) -v -w "/data/dump-080-syncthing-${CAPTURETIME}.pcap"
     volumes:
       - '${DATADIR}:/data'
     network_mode: "service:synclient1"
+    depends_on:
+      - synclient1
 
   tcpdump_syncthing2:
     image: 'detlearsom/tcpdump'
-    command: not(ip6 or arp or (udp and (src port 5353 or src port 57621))) -v -w "/data/dump-080-syncthing2-${CAPTURETIME}.pcap"
+    command: not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\) -v -w "/data/dump-080-syncthing2-${CAPTURETIME}.pcap"
     volumes:
       - '${DATADIR}:/data'
     network_mode: "service:synclient2"
+    depends_on:
+      - synclient2
 
   tcpdump_syncthing3:
     image: 'detlearsom/tcpdump'
-    command: not(ip6 or arp or (udp and (src port 5353 or src port 57621))) -v -w "/data/dump-080-syncthing3-${CAPTURETIME}.pcap"
+    command: not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\) -v -w "/data/dump-080-syncthing3-${CAPTURETIME}.pcap"
     volumes:
       - '${DATADIR}:/data'
     network_mode: "service:synclient3"
+    depends_on:
+      - synclient3
 
 networks:
   capture:

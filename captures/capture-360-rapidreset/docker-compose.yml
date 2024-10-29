@@ -33,7 +33,7 @@ services:
 
 
   tcpdump_rr:
-    image: 'detlearsom/tcpdump-trunc'
+    image: 'detlearsom/tcpdump_trunc'
     command: 360-rapidreset ${CAPTURETIME} ${SCENARIO} ${REPNUM}
     volumes:
       - '$PWD/data:/data'

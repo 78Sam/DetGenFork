@@ -41,7 +41,7 @@ else
     cp docker-compose_3clients.yml docker-compose.yml
 fi
 
-ContainerIDS=("capture-080-syncthing_synclient1_1" "capture-080-syncthing_synclient2_1" "capture-080-syncthing_synclient3_1")
+ContainerIDS=("capture-080-syncthing-synclient1-1" "capture-080-syncthing-synclient2-1" "capture-080-syncthing-synclient3-1")
 
 
 for ((i=1; i<=REPEAT; i++))
