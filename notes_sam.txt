@@ -17,6 +17,9 @@ the items listed here, specifically:
     - vsftpd
 So these scenarios/images may now be working
 
+Also updated all docker-compose commands to the new version which is 'docker compose'
+as well as change the ANSI flag stuff
+
 General:
 - What is the Bulgarian HTML page that is used everywhere?
 - Why does the 020 capture siege end so much sooner than the 040 capture siege (I tried upping the threads of
