@@ -84,7 +84,6 @@ CAPTURES:
 - ./container_tc.sh referenced but no file by that name is in the directory
 
 050 - vsftpd:
-- Lots of issues in this scenario
 - Fixed the images used as mentioned above
 - Fixed issues with tcpdump commands containing () which are special characters and cause tcpdump
     to fail afaik. Replaced with not\(ip6 or arp or \(udp and \(src port 5353 or src port 57621\)\)\)
