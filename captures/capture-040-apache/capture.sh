@@ -1,14 +1,19 @@
 #!/bin/bash
 
-DURATION="$1"
-export CAPTURETIME=`date +%Y-%m-%d_%H-%M-%S`
-REPEAT="$2"
-
+CONCURRENT_THREADS="$1"
+REQUESTS="$2"
+REPEAT="$3"
+DURATION="$4"
 
 [ -z "$DURATION" ] && DURATION=60
-[ -z "$REPEAT" ] && REPEAT=1
 [ -z "$CONCURRENT_THREADS" ] && CONCURRENT_THREADS=1
 [ -z "$REQUESTS" ] && REQUESTS=20
+[ -z "$REPEAT" ] && REPEAT=1
+
+export CAPTURETIME=`date +%Y-%m-%d_%H-%M-%S`
+export CONCURRENT_THREADS
+export REQUESTS
+export SCENARIO="apache"
 
 function bringup {
     echo "Start the containerised applications..."

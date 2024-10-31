@@ -33,6 +33,23 @@ services:
     depends_on:
       - siege
 
+  dummy:
+    image: 'ubuntu'
+    depends_on:
+      - apache
+      - siege
+      - tcpdump_apache
+      - tcpdump_siege
+
+  tcpdump_all:
+    image: 'detlearsom/tcpdump-all'
+    command: ["tcpdump", "-i", "any", "-w", "/data/dump-040-siege-all.pcap"]
+    volumes:
+      - '$PWD/data:/data'
+    network_mode: "bridge"
+    depends_on:
+      - dummy
+
 networks:
   capture:
     driver: "bridge"
