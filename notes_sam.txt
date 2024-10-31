@@ -20,7 +20,7 @@ So these scenarios/images may now be working
 Also updated all docker-compose commands to the new version which is 'docker compose'
 as well as change the ANSI flag stuff
 
-General:
+General: 
 - What is the Bulgarian HTML page that is used everywhere?
 - Why does the 020 capture siege end so much sooner than the 040 capture siege (I tried upping the threads of
     040 siege to 10 like in 020)
@@ -32,6 +32,15 @@ General:
 - Would be good to create a common naming scheme for the names given to the docker images referenced in the docker-compose.yml
     files, as this has been a problem multiple times where the containers have had different names than
     what we have in the shell scripts
+
+
+
+Is there functionality for setting labels such as benign and attack for use in training ML models?
+
+Are we able to combine the different tcpdump datasources into one file?
+
+Could we set up a tcpdump container situated where it can see all traffic flowing through the scenario
+much like a NIDS would?
 
 
 
